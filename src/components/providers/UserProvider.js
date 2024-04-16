@@ -14,6 +14,7 @@ const userContextTemplate = {
     jwtInfo: String,
     wallet: Wallet
 }
+
 const UserContext = React.createContext(userContextTemplate);
 
 
@@ -60,7 +61,7 @@ function UserProvider(props) {
               localStorage.setItem("userInfo", JSON.stringify(response.data.data.userInfo));
               localStorage.setItem("jwtToken", JSON.stringify(response.data.data.token));
               console.log(response.data.data)
-              if(response.data.data.keyPair){
+              if(response.data.data.keyPair && response.data.data.keyPair.length > 0){      // Checking if keyPair exists and having at least one element
                 localStorage.setItem("privateKey",wallet.decrypt(response.data.data.keyPair[0].privateKey));
                 localStorage.setItem("publicKey",response.data.data.keyPair[0].publicKey);
               }
