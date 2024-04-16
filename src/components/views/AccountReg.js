@@ -69,10 +69,13 @@ function AccountReg(props) {
                   setMessage({style:'text-green-500',val:true,data:t("Account successfully created!")})
                   localStorage.setItem("userInfo", JSON.stringify(response.data.data.userInfo));
                   localStorage.setItem("jwtToken", JSON.stringify(response.data.data.token));
-
-                 if(response.data.data.keyPair){
+                  // Checking if keyPair exists and having at least one element
+                 if(response.data.data.keyPair && response.data.data.keyPair.length > 0){
                     localStorage.setItem("privateKey",wallet.decrypt(response.data.data.keyPair[0].privateKey));
                     localStorage.setItem("publicKey",JSON.stringify(response.data.data.keyPair[0].publicKey));
+                  } else {
+                    // Handling the case where keyPair is not as expected
+                    console.error('Key pair data is missing or not in the expected format', response.data.data.keyPair);
                   }
                 } 
                 else{

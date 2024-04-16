@@ -1,5 +1,7 @@
 // export const SERVER_URL = "https://mglcoin.io/api/"
-export const SERVER_URL = "http://localhost:5000/api/"
+// export const SERVER_URL = "http://localhost:5000/api/"   // Previous local development server URL
+export const SERVER_URL = "http://localhost:5001/api/"      // Current local development server URL
+
 
 export const networks=[
   {

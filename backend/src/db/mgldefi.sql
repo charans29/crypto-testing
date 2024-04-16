@@ -155,21 +155,36 @@ CREATE TABLE `transaction` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(10) NOT NULL,
+-- CREATE TABLE `user` (
+--   `id` int(10) NOT NULL,
+--   `email` varchar(50) NOT NULL,
+--   `password` varchar(100) NOT NULL,
+--   `country` varchar(30) NOT NULL,
+--   `invite_code` int(11) NOT NULL,
+--   `role` varchar(10) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `user` (                                       -- created according to insert values from UserModel.create
+  `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `country` varchar(30) NOT NULL,
-  `invite_code` int(11) NOT NULL,
-  `role` varchar(10) NOT NULL
+  `invite_code` int DEFAULT NULL,
+  `role` varchar(10) NOT NULL,
+  `get_bnb` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `country`, `invite_code`, `role`) VALUES
-(1, 'info@mglcoin.io', '$2a$08$0jDkU2V337gMOONHZgX0OepzgQZLzIYDVv4o64.4nwY2VolH.hip.', 'Taiwan', 0, 'Super');
+-- INSERT INTO `user` (`id`, `email`, `password`, `country`, `invite_code`, `role`) VALUES
+-- (1, 'info@mglcoin.io', '$2a$08$0jDkU2V337gMOONHZgX0OepzgQZLzIYDVv4o64.4nwY2VolH.hip.', 'Taiwan', 0, 'Super');
+
+
+INSERT INTO `user` (email, password, country, invite_code, role, get_bnb)
+VALUES ('example@example.com', 'Password123!', 'Example Country', NULL, 'General', 0);
 
 -- --------------------------------------------------------
 

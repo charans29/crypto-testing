@@ -4,7 +4,8 @@ const mysql2 = require('mysql2');
 class DBConnection {
     constructor() {
         const config = {
-            host: process.env.DB_HOST,
+            host: process.env.DB_HOST.split(':')[0],  // config to access host
+            port: process.env.DB_HOST.split(':')[1],  // config to access port
             user: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_DATABASE
@@ -27,10 +28,12 @@ class DBConnection {
                     console.error('Database connection was refused.');
                 }
             }
+    
             if (connection) {
+                // console.log('[[[[[[Database connection was successful.]]]]]]');
                 connection.release();
             }
-            return
+            return;
         });
     }
 

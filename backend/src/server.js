@@ -27,7 +27,9 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 // enabling cors for all requests by using cors middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000'                             // Allowing local frontend development server to access the API
+}));
 // Enable pre-flight
 app.options("*", cors());
 app.use(
