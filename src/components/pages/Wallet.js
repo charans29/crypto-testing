@@ -35,7 +35,8 @@ function Wallet() {
   const [loading,setLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [connection,setConnection] = useState(true);
-  const [publicKey,setPublicKey]=useState(localStorage.getItem("publicKey").replace(/"/g, ""));
+  // const [publicKey,setPublicKey]=useState(localStorage.getItem("publicKey").replace(/"/g, ""));
+  const [publicKey, setPublicKey] = useState(localStorage.getItem("publicKey") ? localStorage.getItem("publicKey").replace(/"/g, "") : "");   // supressed error if user not created wallet
   const [stopMode, setStopMode] = useState(true);
   const [visible, setVisible] = useState(false);
   const [transations,setTransactions] = useState([]);

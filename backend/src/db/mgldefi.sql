@@ -192,8 +192,25 @@ VALUES ('example@example.com', 'Password123!', 'Example Country', NULL, 'General
 -- Table structure for table `wallet`
 --
 
-CREATE TABLE `wallet` (
-  `id` int(11) NOT NULL,
+-- CREATE TABLE `wallet` (
+--   `id` int(11) NOT NULL,
+--   `user_id` int(11) NOT NULL,
+--   `publickey` varchar(42) NOT NULL,
+--   `privatekey` varchar(64) NOT NULL,
+--   `keyphrase` text NOT NULL,
+--   `polygon_tokensymbol` varchar(1000) NOT NULL,
+--   `polygonmain_assets` text NOT NULL,
+--   `polygontest_assets` text NOT NULL,
+--   `network` text NOT NULL,
+--   `bsc_tokensymbol` varchar(1000) NOT NULL,
+--   `bscmain_assets` text NOT NULL,
+--   `bsctest_assets` text NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE `wallet` (                                       -- Created table making id to auto increment & PK 
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `publickey` varchar(42) NOT NULL,
   `privatekey` varchar(64) NOT NULL,
@@ -204,7 +221,8 @@ CREATE TABLE `wallet` (
   `network` text NOT NULL,
   `bsc_tokensymbol` varchar(1000) NOT NULL,
   `bscmain_assets` text NOT NULL,
-  `bsctest_assets` text NOT NULL
+  `bsctest_assets` text NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
